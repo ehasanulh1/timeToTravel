@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import line from '../../assets/line.svg';
+import SolidButton from '../../components/SolidButton';
 import DestinationCard from './DestinationCard';
 
 const Destination = () => {
@@ -21,6 +22,12 @@ const Destination = () => {
                             destination={destination}
                         ></DestinationCard>)
                     }
+                </div>
+                <div className='pt-20 '>
+                    <img className='mx-auto text-yellow-500' src={line} alt="" />
+                    <div className='my-10'>
+                        <SolidButton>See All</SolidButton>
+                    </div>
                 </div>
             </div>
         </div>

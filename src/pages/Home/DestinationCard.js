@@ -1,9 +1,9 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import OutlineButton from '../../components/OutlineButton';
 
 const DestinationCard = ({ destination }) => {
-    const { img, title, price, rating, description
-    } = destination;
+    const { img, title, price, rating } = destination;
     return (
         <div className="card border-b border-yellow-500 bg-white rounded-none hover:drop-shadow-xl">
             <figure>
@@ -56,7 +56,7 @@ const DestinationCard = ({ destination }) => {
                 </p>
 
                 <div className="card-actions my-3">
-                    <button className="px-9 py-4 uppercase font-bold text-sm tracking-widest text-yellow-500 rounded-[3px] border border-yellow-500 hover:text-white hover:bg-yellow-500">Book Now</button>
+                    <OutlineButton>Book Now</OutlineButton>
                 </div>
             </div>
         </div>
