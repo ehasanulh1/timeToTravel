@@ -1,9 +1,10 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import OutlineButton from '../../components/OutlineButton';
+import { Link } from 'react-router-dom';
 
 const DestinationCard = ({ destination }) => {
-    const { img, title, price, rating } = destination;
+    const { _id, img, title, price, rating} = destination;
     return (
         <div className="card border-b border-yellow-500 bg-white rounded-none hover:drop-shadow-xl">
             <figure>
@@ -56,7 +57,7 @@ const DestinationCard = ({ destination }) => {
                 </p>
 
                 <div className="card-actions my-3">
-                    <OutlineButton>Book Now</OutlineButton>
+                    <Link to={`/destinations/${_id}`}><OutlineButton>View Details</OutlineButton></Link>
                 </div>
             </div>
         </div>

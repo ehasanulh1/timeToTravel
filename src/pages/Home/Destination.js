@@ -1,14 +1,16 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import line from '../../assets/line.svg';
 import SolidButton from '../../components/SolidButton';
 import DestinationCard from './DestinationCard';
 
 const Destination = () => {
     const destinationData = useLoaderData()
+
+
     console.log(destinationData)
     return (
-        <div style={{ maxWidth: '1200px' }} className='mx-auto px-4 py-28'>
+        <div style={{ maxWidth: '1200px' }} className='mx-auto px-4 py-20'>
             <div>
                 <div className='text-center pb-20'>
                     <h1 className='font-sans font-bold text-neutral-900 text-4xl uppercase mb-8'>POPULAR DESTINATIONS</h1>
@@ -26,7 +28,7 @@ const Destination = () => {
                 <div className='pt-20 '>
                     <img className='mx-auto text-yellow-500' src={line} alt="" />
                     <div className='my-10'>
-                        <SolidButton>See All</SolidButton>
+                        <SolidButton><Link to='/destinations'>See All</Link></SolidButton>
                     </div>
                 </div>
             </div>
