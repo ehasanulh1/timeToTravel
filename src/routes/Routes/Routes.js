@@ -4,7 +4,6 @@ import Blog from "../../pages/Blog/Blog";
 import Home from "../../pages/Home/Home";
 import AllDestinations from "../../pages/AllDestinations/AllDestinations";
 import DestinationDetails from "../../pages/DestinationDetails/DestinationDetails";
-import Reviews from "../../pages/Reviews/Reviews";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 
@@ -39,11 +38,6 @@ export const router = createBrowserRouter([
                 path: '/destinations/:id',
                 element: <DestinationDetails></DestinationDetails>,
                 loader: ({params}) => fetch(`http://localhost:5000/destinations/${params.id}`)
-            },
-            {
-                path: '/reviews',
-                element: <Reviews></Reviews>,
-                loader: ()=> fetch('reviews.json')
             }
         ]
     }

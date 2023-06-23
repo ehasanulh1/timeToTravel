@@ -8,7 +8,7 @@ import signUpImg from '../../assets/Login.gif';
 import { toast } from 'react-hot-toast';
 
 const Register = () => {
-    const { providerLogin, createUser } = useContext(AuthContext);
+    const { providerLogin, createUser, updateUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const googleProvider = new GoogleAuthProvider();
@@ -19,6 +19,7 @@ const Register = () => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, email, password)
@@ -28,9 +29,22 @@ const Register = () => {
                 const user = result.user;
                 toast.success('User create successfully');
                 console.log(user)
+                const userInfo = {
+                    displayName: name,
+                    photoURL,
+                }
+                console.log(userInfo)
+                updateUser(userInfo)
+                    .then(() => {
+                        form.reset();
+                        navigate('/');
+                    })
+                    .catch(err => console.log(err));
                 // setAuthToken(user)
-                form.reset();
-                navigate('/')
+            })
+            .catch(error => {
+                console.log(error);
+                // setSignupError(error.message)
             })
     }
 
@@ -68,6 +82,13 @@ const Register = () => {
                             </label>
                             <input type="email" name='email' placeholder="email" className="input input-bordered rounded-[3px] py-4" required />
                         </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo</span>
+                            </label>
+                            <input type="file" name='photoURL' className="file-input file-input-bordered file-input-warning w-full max-w-xs" />
+                        </div>
+
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
