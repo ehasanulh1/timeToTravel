@@ -5,6 +5,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import SolidButton from '../../components/SolidButton';
 import { FaFacebookF, FaGoogle, FaLinkedinIn } from 'react-icons/fa';
 import signUpImg from '../../assets/Login.gif';
+import { toast } from 'react-hot-toast';
 
 const Register = () => {
     const { providerLogin, createUser } = useContext(AuthContext);
@@ -25,6 +26,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
+                toast.success('User create successfully');
                 console.log(user)
                 // setAuthToken(user)
                 form.reset();
@@ -53,7 +55,7 @@ const Register = () => {
                 </div>
                 <div className="lg:mt-10">
                     <form onSubmit={handleSubmit} className="card-body">
-                        <h1 className="text-4xl text-center my-3 font-bold">Login</h1>
+                        <h1 className="text-4xl text-center my-3 font-bold">Sign Up</h1>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -86,7 +88,7 @@ const Register = () => {
                             <button className='p-3 mx-3 rounded-full border hover:bg-primary hover:text-white'><FaLinkedinIn /></button>
                             <button onClick={handleGoogleSignIn} className='p-3 rounded-full border hover:bg-primary hover:text-white'><FaGoogle /></button>
                         </div>
-                        <p className='text-sm py-4'>Already have an account? <Link className='underline text-yellow-500' to='/login'>Register</Link></p>
+                        <p className='text-sm py-4'>Already have an account? <Link className='underline text-yellow-500' to='/login'>Login</Link></p>
                     </div>
                 </div>
             </div>
