@@ -15,7 +15,6 @@ const DestinationDetails = () => {
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [_id]);
-    console.log(reviews)
 
     return (
         <div style={{ maxWidth: '1200px' }} className='mx-auto px-4 my-20'>
