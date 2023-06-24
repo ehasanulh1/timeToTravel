@@ -74,7 +74,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name='name' placeholder="email" className="input input-bordered rounded-[3px] py-4" required />
+                            <input type="text" name='name' placeholder="name" className="input input-bordered rounded-[3px] py-4" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -86,7 +86,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Photo</span>
                             </label>
-                            <input type="file" name='photoURL' className="file-input file-input-bordered file-input-warning w-full max-w-xs" />
+                            <input type="text" name='photoURL' className="input input-bordered rounded-[3px] py-4" />
                         </div>
 
                         <div className="form-control">

@@ -16,10 +16,14 @@ const Header = () => {
     const menuItems = <>
         <li><Link to="/" className='tracking-widest uppercase font-semibold text-white hover:text-yellow-500 text-sm px-8'>Home</Link></li>
         <li><Link to="/destinations" className='tracking-widest uppercase font-semibold text-white hover:text-yellow-500 text-sm px-8'>Destinations</Link></li>
-        <li><Link to="/gallery" className='tracking-widest uppercase font-semibold text-white hover:text-yellow-500 text-sm px-8'>Gallery</Link></li>
+        {user?.uid ?
+            <>
+                <li><Link to='/myReviews' className='tracking-widest uppercase font-semibold text-white hover:text-yellow-500 text-sm px-8'>My Reviews</Link></li>
+                <li><Link to='/addDestination' className='tracking-widest uppercase font-semibold text-white hover:text-yellow-500 text-sm px-8'>Add Destination</Link></li>
+            </>
+            : <span></span>
+        }
         <li><Link to="/blog" className='tracking-widest uppercase font-semibold text-white hover:text-yellow-500 text-sm px-8'>Blog</Link></li>
-        <li><Link to="/about" className='tracking-widest uppercase font-semibold text-white hover:text-yellow-500 text-sm px-8'>About</Link></li>
-        <li><Link to="/contact" className='tracking-widest uppercase font-semibold text-white hover:text-yellow-500 text-sm px-8'>Contact</Link></li>
     </>
     return (
         <div className='bg-black sticky top-0 z-50'>
