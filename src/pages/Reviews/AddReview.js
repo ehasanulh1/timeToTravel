@@ -3,10 +3,12 @@ import SolidButton from '../../components/SolidButton';
 import { AuthContext } from '../../contexts/UserContext';
 import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const AddReview = ({ destinationData }) => {
     const { user } = useContext(AuthContext);
     const { _id, title } = destinationData;
+    useTitle('Add a review')
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;

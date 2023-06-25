@@ -5,12 +5,14 @@ import { AuthContext } from '../../contexts/UserContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImg from '../../assets/loginImg1.gif'
 import SolidButton from '../../components/SolidButton';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const { providerLogin, signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+    useTitle('Login')
 
     const googleProvider = new GoogleAuthProvider();
     // const twitterProvider = new TwitterAuthProvider();

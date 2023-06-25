@@ -1,7 +1,9 @@
 import React from 'react';
 import line from '../../assets/line.svg'
+import useTitle from '../../hooks/useTitle';
 
 const Blog = () => {
+    useTitle('Blogs');
     return (
         <div style={{ maxWidth: '1200px' }} className='mx-auto px-4 py-28'>
             <div className='text-center pb-20'>

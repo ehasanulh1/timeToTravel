@@ -6,10 +6,12 @@ import SolidButton from '../../components/SolidButton';
 import { FaFacebookF, FaGoogle, FaLinkedinIn } from 'react-icons/fa';
 import signUpImg from '../../assets/Login.gif';
 import { toast } from 'react-hot-toast';
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
     const { providerLogin, createUser, updateUser } = useContext(AuthContext);
     const navigate = useNavigate();
+    useTitle('Register')
 
     const googleProvider = new GoogleAuthProvider();
     // const twitterProvider = new TwitterAuthProvider();
