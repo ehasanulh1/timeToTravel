@@ -68,19 +68,25 @@ const Review = ({ review }) => {
                                 :
                                 <></>
                         }
+
                         {
                             rating === 1 ?
                                 <>
-                                    <FaStar className='text-yellow-500 mr-0.5' />
+                                    <FaStar className='me-1' />
                                     <FaStar className='me-1' />
                                     <FaStar className='me-1' />
                                     <FaStar className='me-1' />
                                     <FaStar className='me-1' />
                                 </>
                                 :
-                                <></>
+                                <>
+                                    <FaStar className='me-1' />
+                                    <FaStar className='me-1' />
+                                    <FaStar className='me-1' />
+                                    <FaStar className='me-1' />
+                                    <FaStar className='me-1' />
+                                </>
                         }
-
                     </div>
                 </div>
             </div>

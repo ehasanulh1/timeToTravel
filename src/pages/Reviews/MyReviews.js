@@ -41,7 +41,7 @@ const MyReviews = () => {
             </div>
             <div className='items-center'>
                 {
-                    myReviews.length > 0 ?
+                    myReviews?.length > 0 ?
                         <div className='grid grid-cols-2 gap-10 mb-10'>
                             {
                                 myReviews.map(review => <ReviewCard
@@ -54,7 +54,8 @@ const MyReviews = () => {
                         :
                         <div className='font-medium text-3xl'>{noReviews}</div>
                 }
-            </div>  
+            </div>
+
         </div>
     );
 };
