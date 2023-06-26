@@ -19,7 +19,7 @@ const AddDestination = () => {
         console.log(title, price, img, rating, message)
 
         const destination = {
-            img: user?.photoURL,
+            img,
             title,
             rating,
             price,

@@ -27,7 +27,7 @@ const Destination = () => {
                 </div>
                 <div className='pt-20 '>
                     <img className='mx-auto text-yellow-500' src={line} alt="" />
-                    <div className='my-10'>
+                    <div className='my-10 text-center'>
                         <SolidButton><Link to='/destinations'>See All</Link></SolidButton>
                     </div>
                 </div>

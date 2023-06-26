@@ -11,7 +11,7 @@ const DestinationDetails = () => {
     const { _id, img, title, price, rating, description } = destinationData;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?service_id=${_id}`)
+        fetch(`http://localhost:5000/reviews/${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [_id]);
@@ -29,65 +29,78 @@ const DestinationDetails = () => {
                     <h2 className="card-title font-bold font-sans text-4xl uppercase tracking-wider">{title}</h2>
                     <div className='flex text-xs my-3'>
                         {
-                            rating === 5 ?
-                                <>
-                                    <FaStar className='text-yellow-500 mr-0.5' />
-                                    <FaStar className='text-yellow-500 mr-0.5' />
-                                    <FaStar className='text-yellow-500 mr-0.5' />
-                                    <FaStar className='text-yellow-500 mr-0.5' />
-                                    <FaStar className='text-yellow-500 mr-0.5' />
-                                </>
-                                :
-                                <></>
-                        }
-                        {
-                            rating === 4 ?
-                                <>
-                                    <FaStar className='text-yellow-500 mr-0.5' />
-                                    <FaStar className='text-yellow-500 mr-0.5' />
-                                    <FaStar className='text-yellow-500 mr-0.5' />
-                                    <FaStar className='text-yellow-500 mr-0.5' />
-                                    <FaStar className=' me-1' />
-                                </>
-                                :
-                                <></>
-                        }
-                        {
-                            rating === 3 ?
-                                <>
-                                    <FaStar className='text-yellow-500 mr-0.5' />
-                                    <FaStar className='text-yellow-500 mr-0.5' />
-                                    <FaStar className='text-yellow-500 mr-0.5' />
-                                    <FaStar className='me-1' />
-                                    <FaStar className='me-1' />
-                                </>
-                                :
-                                <></>
-                        }
-                        {
-                            rating === 2 ?
-                                <>
-                                    <FaStar className='text-yellow-500 mr-0.5' />
-                                    <FaStar className='text-yellow-500 mr-0.5' />
-                                    <FaStar className='me-1' />
-                                    <FaStar className='me-1' />
-                                    <FaStar className='me-1' />
-                                </>
-                                :
-                                <></>
-                        }
-                        {
-                            rating === 1 ?
-                                <>
-                                    <FaStar className='text-yellow-500 mr-0.5' />
-                                    <FaStar className='me-1' />
-                                    <FaStar className='me-1' />
-                                    <FaStar className='me-1' />
-                                    <FaStar className='me-1' />
-                                </>
-                                :
-                                <></>
-                        }
+                                rating === 5 ?
+                                    <>
+                                        <FaStar className='text-yellow-500 mr-0.5' />
+                                        <FaStar className='text-yellow-500 mr-0.5' />
+                                        <FaStar className='text-yellow-500 mr-0.5' />
+                                        <FaStar className='text-yellow-500 mr-0.5' />
+                                        <FaStar className='text-yellow-500 mr-0.5' />
+                                    </>
+                                    :
+                                    <></>
+                            }
+                            {
+                                rating === 4 ?
+                                    <>
+                                        <FaStar className='text-yellow-500 mr-0.5' />
+                                        <FaStar className='text-yellow-500 mr-0.5' />
+                                        <FaStar className='text-yellow-500 mr-0.5' />
+                                        <FaStar className='text-yellow-500 mr-0.5' />
+                                        <FaStar className='text-gray-500 mr-0.5' />
+                                    </>
+                                    :
+                                    <></>
+                            }
+                            {
+                                rating === 3 ?
+                                    <>
+                                        <FaStar className='text-yellow-500 mr-0.5' />
+                                        <FaStar className='text-yellow-500 mr-0.5' />
+                                        <FaStar className='text-yellow-500 mr-0.5' />
+                                        <FaStar className='text-gray-500 mr-0.5' />
+                                        <FaStar className='text-gray-500 mr-0.5' />
+                                    </>
+                                    :
+                                    <></>
+                            }
+                            {
+                                rating === 2 ?
+                                    <>
+                                        <FaStar className='text-yellow-500 mr-0.5' />
+                                        <FaStar className='text-yellow-500 mr-0.5' />
+                                        <FaStar className='text-gray-500 mr-0.5' />
+                                        <FaStar className='text-gray-500 mr-0.5' />
+                                        <FaStar className='text-gray-500 mr-0.5' />
+                                    </>
+                                    :
+                                    <></>
+                            }
+                            {
+                                rating === 1 ?
+                                    <>
+                                        <FaStar className='text-yellow-500 mr-0.5' />
+                                        <FaStar className='text-gray-500 mr-0.5' />
+                                        <FaStar className='text-gray-500 mr-0.5' />
+                                        <FaStar className='text-gray-500 mr-0.5' />
+                                        <FaStar className='text-gray-500 mr-0.5' />
+                                    </>
+                                    :
+                                    <>
+                                    </>
+                            }
+                            {
+                                !rating ?
+                                    <>
+                                        <FaStar className='text-gray-500 mr-0.5' />
+                                        <FaStar className='text-gray-500 mr-0.5' />
+                                        <FaStar className='text-gray-500 mr-0.5' />
+                                        <FaStar className='text-gray-500 mr-0.5' />
+                                        <FaStar className='text-gray-500 mr-0.5' />
+                                    </>
+                                    :
+                                    <></>
+                            }
 
                     </div>
                     <p className='p-0 m-0 font-semibold font-sans text-sm uppercase tracking-wider'>Price: ${price}.00

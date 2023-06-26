@@ -7,6 +7,7 @@ import { FaFacebookF, FaGoogle, FaLinkedinIn } from 'react-icons/fa';
 import signUpImg from '../../assets/Login.gif';
 import { toast } from 'react-hot-toast';
 import useTitle from '../../hooks/useTitle';
+import { setAuthToken } from '../../api/auth';
 
 const Register = () => {
     const { providerLogin, createUser, updateUser } = useContext(AuthContext);
@@ -42,7 +43,7 @@ const Register = () => {
                         navigate('/');
                     })
                     .catch(err => console.log(err));
-                // setAuthToken(user)
+                setAuthToken(user)
             })
             .catch(error => {
                 console.log(error);
@@ -55,7 +56,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                // setAuthToken(user)
+                setAuthToken(user)
                 navigate('/')
             })
             .catch(error => {

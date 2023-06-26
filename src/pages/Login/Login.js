@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImg from '../../assets/loginImg1.gif'
 import SolidButton from '../../components/SolidButton';
 import useTitle from '../../hooks/useTitle';
+import { setAuthToken } from '../../api/auth';
 
 const Login = () => {
     const { providerLogin, signIn } = useContext(AuthContext);
@@ -27,8 +28,8 @@ const Login = () => {
 
         signIn(email, password)
             .then(result => {
-                // const user = result.user;
-                // setAuthToken(user)
+                const user = result.user;
+                setAuthToken(user)
                 form.reset();
                 navigate(from, { replace: true });
 
@@ -41,8 +42,8 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
-                // const user = result.user;
-                // setAuthToken(user)
+                const user = result.user;
+                setAuthToken(user)
                 navigate(from, { replace: true });
             })
             .catch(error => {

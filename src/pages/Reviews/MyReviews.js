@@ -6,16 +6,25 @@ import { toast } from 'react-hot-toast';
 import useTitle from '../../hooks/useTitle';
 
 const MyReviews = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [myReviews, setMyReviews] = useState([]);
     const noReviews = 'No reviews you added';
     useTitle('My Reviews')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('timeToTravel')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut()
+                }
+                return res.json()
+            })
             .then(data => setMyReviews(data))
-    }, [user?.email]);
+    }, [user?.email, logOut]);
 
     const handleDelete = id => {
         const agree = window.confirm(`Are you sure you want to delete review`);
@@ -37,14 +46,14 @@ const MyReviews = () => {
     return (
         <div style={{ minHeight: '700px' }} className="mb-20 container mx-auto">
             <div className='text-center pb-20 mt-20'>
-                <h1 className='font-sans font-bold text-neutral-900 text-4xl uppercase mb-8'>Your Reviews</h1>
-                <p className='text-lg italic mb-8 tracking-widest font-mono'>Here your reviews with all destinations, You can see your previous experiences with those places.</p>
+                <h1 className='font-sans font-bold text-neutral-900 text-4xl uppercase mb-8'>My Reviews</h1>
+                <p className='text-lg italic mb-8 tracking-widest font-mono'>I can see my previous experiences about those places. also I can delete or edit my reviews</p>
                 <img className='mx-auto text-yellow-500' src={line} alt="" />
             </div>
             <div className='items-center'>
                 {
                     myReviews?.length > 0 ?
-                        <div className='grid grid-cols-2 gap-10 mb-10'>
+                        <div className='grid lg:grid-cols-2 gap-10 mb-10 mx-6 lg:mx-0'>
                             {
                                 myReviews.map(review => <ReviewCard
                                     key={review._id}

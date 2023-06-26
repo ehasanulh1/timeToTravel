@@ -47,10 +47,10 @@ const ReviewCard = ({ review, handleDelete }) => {
 
                 <div>
                     <h2 className="text-xl">
-                        Destination: {serviceName}
+                       <span className='font-semibold'>Destination: </span>  {serviceName}
                     </h2>
                     <div className='flex items-center gap-3 mt-3'>
-                        <span className='font-medium'>Rating: </span>
+                        <span className='font-semibold'>Rating: </span>
                         <div className='flex text-xs my-1'>
                             {
                                 rating === 5 ?
@@ -132,9 +132,9 @@ const ReviewCard = ({ review, handleDelete }) => {
                 </div>
             </div>
             <div className='text-start my-4'>
-                <span className='font-medium'>Submitted Date:</span>  {date}
+                <span className='font-semibold'>Submitted Date:</span>  {date}
             </div>
-            <p className='text-start my-4'><span className='font-medium'>Comments:</span> {message}</p>
+            <p className='text-start my-4'><span className='font-semibold'>Comments:</span> {message}</p>
 
             <div className='flex gap-5 justify-start items-center my-10'>
                 <div onClick={() => { handleDelete(_id) }}><OutlineButton>Delete</OutlineButton></div>
