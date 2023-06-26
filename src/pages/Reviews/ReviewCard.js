@@ -24,7 +24,7 @@ const ReviewCard = ({ review, handleDelete }) => {
         }
         console.log(updateReview)
 
-        fetch(`http://localhost:5000/reviews/${_id}`, {
+        fetch(`https://time-to-travel-server-ehasanulh1.vercel.app/reviews/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

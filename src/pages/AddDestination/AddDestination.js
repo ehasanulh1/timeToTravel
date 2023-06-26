@@ -26,7 +26,7 @@ const AddDestination = () => {
             description: message
         }
 
-        fetch('http://localhost:5000/destination', {
+        fetch('https://time-to-travel-server-ehasanulh1.vercel.app/destination', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

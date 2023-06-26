@@ -11,7 +11,7 @@ const DestinationDetails = () => {
     const { _id, img, title, price, rating, description } = destinationData;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${_id}`)
+        fetch(`https://time-to-travel-server-ehasanulh1.vercel.app/reviews/${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [_id]);

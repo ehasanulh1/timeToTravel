@@ -5,7 +5,7 @@ export const setAuthToken = user =>{
     console.log(currentUser)
 
     //get jwt token
-    fetch('http://localhost:5000/jwt', {
+    fetch('https://time-to-travel-server-ehasanulh1.vercel.app/jwt', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

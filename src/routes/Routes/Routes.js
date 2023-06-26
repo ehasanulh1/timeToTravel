@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/destinations')
+                loader: () => fetch('https://time-to-travel-server-ehasanulh1.vercel.app/destinations')
             },
             {
                 path: '/login',
@@ -36,12 +36,12 @@ export const router = createBrowserRouter([
             {
                 path: '/destinations',
                 element: <AllDestinations></AllDestinations>,
-                loader: () => fetch('http://localhost:5000/destinations/seeAll')
+                loader: () => fetch('https://time-to-travel-server-ehasanulh1.vercel.app/destinations/seeAll')
             },
             {
                 path: '/destinations/:id',
                 element: <DestinationDetails></DestinationDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/destinations/${params.id}`)
+                loader: ({ params }) => fetch(`https://time-to-travel-server-ehasanulh1.vercel.app/destinations/${params.id}`)
             },
             {
                 path: '/myReviews',
