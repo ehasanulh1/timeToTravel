@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const DestinationCard = ({ destination }) => {
     const { _id, img, title, price, rating} = destination;
     return (
-        <div className="card border-b border-yellow-500 bg-white rounded-none hover:drop-shadow-xl">
+        <div className="card border-b items-center border-yellow-500 bg-white rounded-none hover:drop-shadow-xl">
             <figure className='max-w-[370px] max-h-[250px]'>
                 <img src={img} alt="Shoes" />
             </figure>
